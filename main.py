@@ -3,17 +3,6 @@ import cv2
 import numpy as np
 from glob import glob
 import os
-# This is a demo of running face recognition on live video from your webcam. It's a little more complicated than the
-# other example, but it includes some basic performance tweaks to make things run a lot faster:
-#   1. Process each video frame at 1/4 resolution (though still display it at full resolution)
-#   2. Only detect faces in every other frame of video.
-
-# PLEASE NOTE: This example requires OpenCV (the `cv2` library) to be installed only to read from your webcam.
-# OpenCV is *not* required to use the face_recognition library. It's only required if you want to run this
-# specific demo. If you have trouble installing it, try any of the other demos that don't require it instead.
-
-
-
 
 names = glob("known_faces/*/")
 all_files = list()
@@ -28,16 +17,10 @@ name_list= [
     "Rechard",
     "Tilde"
 ]
-known_faces=[
-    "unknows",
-    "Dan",
-    "Rechard",
-    "Tilde"
-]
 faces=[]
 encodings=[]
 # Load a sample picture and learn how to recognize it.
-
+print("Image loading and endcoding started..")
 for name in names:
 
     for root, dirs, files in os.walk(name):
@@ -60,7 +43,7 @@ for name in names:
         # Add the dirs list to the all_dirs list
         all_dirs.extend(dirs)
 
-print("encoding done for "+str(len(encodings))+" people")
+print("encoding successfully done for "+str(len(encodings))+" people")
 
 
 # Get a reference to webcam #0 (the default one)
